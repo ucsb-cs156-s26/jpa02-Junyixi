@@ -66,7 +66,7 @@ public class TeamTest {
         t2.setName("foo");
         t2.addMember("qux");
 
-        assertTrue(t1.equals(t2));
+        assertFalse(t1.equals(t2));
     }
 
     @Test
@@ -79,9 +79,10 @@ public class TeamTest {
         t2.setName("baz");
         t2.addMember("bar");
 
-        assertTrue(t1.equals(t2));
+        assertFalse(t1.equals(t2));
     }
-
+    
+    @Test
         public void testEqualsDifferentNameDifferentMembers() {
         Team t1 = new Team();
         t1.setName("foo");
@@ -91,9 +92,17 @@ public class TeamTest {
         t2.setName("baz");
         t2.addMember("qux");
 
-        assertTrue(t1.equals(t2));
+        assertFalse(t1.equals(t2));
     }
 
+    @Test
+    public void testEqualsNull() {
+        Team t1 = new Team();
+        t1.addMember("A");
+        t1.addMember("B");
+
+        assertFalse(t1.equals(null));
+    }
 
     @Test
     public void testHashCode() {
