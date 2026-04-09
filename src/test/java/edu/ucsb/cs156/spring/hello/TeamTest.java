@@ -3,7 +3,6 @@ package edu.ucsb.cs156.spring.hello;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
@@ -111,10 +110,17 @@ public class TeamTest {
         Team t1 = new Team();
         t1.setName("foo");
         t1.addMember("bar");
+
         Team t2 = new Team();
         t2.setName("foo");
         t2.addMember("bar");
+
+        Team t3 = new Team();
+        t3.setName("foo");
+        t3.addMember("qux");
+
         assertEquals(t1.hashCode(), t2.hashCode());
+        assertNotEquals(t1.hashCode(), t3.hashCode());
     }
 
 }
