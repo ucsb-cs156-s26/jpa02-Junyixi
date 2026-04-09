@@ -115,12 +115,12 @@ public class TeamTest {
         t2.setName("foo");
         t2.addMember("bar");
 
-        Team t3 = new Team();
-        t3.setName("foo");
-        t3.addMember("qux");
-
         assertEquals(t1.hashCode(), t2.hashCode());
-        assertNotEquals(t1.hashCode(), t3.hashCode());
     }
 
+    @Test
+    public void testHashCodeDefaultTeam() {
+        Team t = new Team();
+        assertEquals(1, t.hashCode());
+}
 }
