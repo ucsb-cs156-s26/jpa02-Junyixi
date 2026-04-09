@@ -20,7 +20,90 @@ public class TeamTest {
     }
 
    
-    // TODO: Add additional tests as needed to get to 100% jacoco line coverage, and
-    // 100% mutation coverage (all mutants timed out or killed)
+    @Test
+    public void toString_returns_correct_string() {
+        assertEquals("Team(name=test-team, members=[])", team.toString());
+    }
+
+        @Test
+    public void testEqualsSameObject() {
+        Team t1 = new Team();
+        t1.setName("foo");
+        t1.addMember("bar");
+
+        assertTrue(t1.equals(t1));
+    }
+
+    @Test
+    public void testEqualsDifferentClass() {
+        Team t1 = new Team();
+        t1.setName("foo");
+        t1.addMember("bar");
+
+        assertFalse(t1.equals("not a team"));
+    }
+
+    @Test
+    public void testEqualsSameNameSameMembers() {
+        Team t1 = new Team();
+        t1.setName("foo");
+        t1.addMember("bar");
+
+        Team t2 = new Team();
+        t2.setName("foo");
+        t2.addMember("bar");
+
+        assertTrue(t1.equals(t2));
+    }
+
+    @Test
+    public void testEqualsSameNameDifferentMembers() {
+        Team t1 = new Team();
+        t1.setName("foo");
+        t1.addMember("bar");
+
+        Team t2 = new Team();
+        t2.setName("foo");
+        t2.addMember("qux");
+
+        assertTrue(t1.equals(t2));
+    }
+
+    @Test
+    public void testEqualsDifferentNameSameMembers() {
+        Team t1 = new Team();
+        t1.setName("foo");
+        t1.addMember("bar");
+
+        Team t2 = new Team();
+        t2.setName("baz");
+        t2.addMember("bar");
+
+        assertTrue(t1.equals(t2));
+    }
+
+        public void testEqualsDifferentNameDifferentMembers() {
+        Team t1 = new Team();
+        t1.setName("foo");
+        t1.addMember("bar");
+
+        Team t2 = new Team();
+        t2.setName("baz");
+        t2.addMember("qux");
+
+        assertTrue(t1.equals(t2));
+    }
+
+
+    @Test
+    public void testHashCode() {
+        Team t1 = new Team();
+        t1.setName("foo");
+        t1.addMember("bar");
+        Team t2 = new Team();
+        t2.setName("foo");
+        t2.addMember("bar");
+        assertEquals(t1.hashCode(), t2.hashCode());
+    }
 
 }

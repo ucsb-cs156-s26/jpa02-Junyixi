@@ -77,12 +77,13 @@ public class Team {
         return this.name.equals(other.name) && this.members.equals(other.members);
     }
 
+
     /*
      * Get a string representation of the team
      */
     @Override
     public String toString() {
-        return "Team(name=" + this.name + ", members=" + this.members + ")";
+       return "Team(name=" + this.name + ", members=" + this.members + ")";
     }
 
     /**
